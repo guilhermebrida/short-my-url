@@ -2,6 +2,7 @@
 services:
   backend:
     build: .
+    image: guilhermebrida/short-my-url:latest
     container_name: short-my-url
     restart: always
     ports:
