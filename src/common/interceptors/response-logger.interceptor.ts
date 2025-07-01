@@ -4,7 +4,7 @@ import {
   Injectable,
   NestInterceptor,
 } from '@nestjs/common';
-import { Observable, tap } from 'rxjs';
+import { catchError, Observable, tap } from 'rxjs';
 
 @Injectable()
 export class ResponseLoggerInterceptor implements NestInterceptor {
@@ -14,6 +14,10 @@ export class ResponseLoggerInterceptor implements NestInterceptor {
       tap((data) => {
         console.log(`[${req.method}] ${req.url} → Response:`, JSON.stringify(data, null, 2));
       }),
+      catchError((err) => {
+        console.error(`[${req.method}] ${req.url} → Error:`, err?.response || err.message);
+        throw err;
+      })
     );
   }
 }

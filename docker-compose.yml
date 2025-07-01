@@ -1,0 +1,18 @@
+
+services:
+  backend:
+    build: .
+    container_name: short-my-url
+    restart: always
+    ports:
+      - "3000:3000"
+    environment:
+      NODE_ENV: production
+      JWT_SECRET: default_secret_key
+      DATABASE_URL: postgresql://smu_owner:npg_4BnUCgmS5zRs@ep-sparkling-darkness-acbx0mel-pooler.sa-east-1.aws.neon.tech/smu?sslmode=require&channel_binding=require
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
