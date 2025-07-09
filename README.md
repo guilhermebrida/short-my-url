@@ -53,7 +53,7 @@ $ npm install
 Crie um arquivo `.env` na raiz com o seguinte conteúdo para rodar local:
 
 ```env
-DATABASE_URL='postgresql://smu_owner:npg_4BnUCgmS5zRs@ep-sparkling-darkness-acbx0mel-pooler.sa-east-1.aws.neon.tech/smu?sslmode=require&channel_binding=require'
+DATABASE_URL='postgresql://smu_owner...'
 JWT_SECRET=default_secret_key
 PORT=3000
 NODE_ENV=production
